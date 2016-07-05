@@ -24,9 +24,16 @@
   %li.launcher
     %i.icon-bookmark
     %a{href: '#'} Bookmarks
-  %li.launcher
-    %i.icon-cloud
-    %a{href: '#'} Backup
+  %li.launcher.dropdown.hover
+    %i.icon-cog
+    %a{href: '#'} Configuración
+    %ul.dropdown-menu
+      %li
+        = link_to 'Direcciones', lookups_path(@lookup, :lookup_type => "Direcciones")
+      %li
+        %a{:href => '#'} Another action
+      %li
+        %a{:href => '#'} Something else here
   %li.launcher
     %i.icon-bug
     %a{href: '#'} Feedback

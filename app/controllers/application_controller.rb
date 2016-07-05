@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
     puts "My current_user is #{@current_user.inspect}"
     @current_user
   end
+  def require_login
+    redirect_to root_path, notice: 'You are not logged in!' unless current_user
+  end
 end

@@ -1,0 +1,27 @@
+-page 'Configuracion', 'configuracion'
+.panel.panel-default.grid
+  .panel-heading
+    %i.icon-table.icon-large
+      = @lookup_type
+      \- Administración
+  %table#lookups_table.table
+    %thead
+      %tr
+        %th Nombre
+        %th Descripcion
+        %th Opciones
+    %tbody
+      - if @lookups.size >0
+        - @lookups.each do |lookup|
+          %tr
+            %td= best_in_place lookup, :value
+            %td= best_in_place lookup, :descripcion
+            %td
+              = link_to lookup, :method => :delete, :data => {:confirm => "Are you sure?"} do
+                %i.icon-trash
+      - else
+        %tr
+          %td{:colspan => "3"}
+            No existe informacion relacionada a #{@lookup_type}
+        %tr#lookups{:style => "display:none;"}
+          = render "lookups/form", l_type: @lookup_type

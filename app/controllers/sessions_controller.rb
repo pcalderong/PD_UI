@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   layout false
+  skip_before_action :require_login, only: [:create, :destroy, :login]
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     puts "my user is #{user.inspect}"
