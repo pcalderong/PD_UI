@@ -1,0 +1,21 @@
+<%= form_for(@hoho) do |f| %>
+  <% if @hoho.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hoho.errors.count, "error") %> prohibited this hoho from being saved:</h2>
+
+      <ul>
+      <% @hoho.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :my %><br>
+    <%= f.text_field :my %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<% if !current_user %>
+<li>
+  <%= link_to "/auth/google_oauth2", id: "sign_in" do %>
+      <i class="fa fa-user"><span class="tab">Ingresar</span></i>
+  <% end %>
+<li class="divider"></li>
+<% else %>
+  <span>
+    Usuario: <strong><%= current_user.name %></strong>
+    <%# [START logout] %>
+    <li><%= link_to signout_path do %>
+        <i class="fa fa-power-off"><span class="tab">Salir</span></i>
+    <% end %>
