@@ -21,21 +21,25 @@
         %a{:href => '#'} Another action
       %li
         %a{:href => '#'} Something else here
-  %li.launcher
-    %i.icon-bookmark
-    %a{href: '#'} Bookmarks
-  %li.launcher.dropdown.hover
-    %i.icon-cog
-    %a{href: '#'} Configuración
-    %ul.dropdown-menu
-      %li
-        = link_to 'Direcciones', lookups_path(@lookup, :lookup_type => "Direcciones")
-      %li
-        %a{:href => '#'} Another action
-      %li
-        %a{:href => '#'} Something else here
+  - if current_user_admin?
+    %li.launcher.dropdown.hover
+      %i.icon-cog
+      = link_to 'Configuración', '#'
+      %ul.dropdown-menu
+        %li
+          = link_to 'Direcciones', lookups_path(@lookup, :lookup_type => "Direcciones"), :data => {no_turbolink: true}
+        %li
+          = link_to 'Especialidades Medicas', lookups_path(@lookup, :lookup_type => "Especialidades"), :data => {no_turbolink: true}
+        %li
+          = link_to 'Padecimientos', lookups_path(@lookup, :lookup_type => "Padecimientos"), :data => {no_turbolink: true}
+        %li
+          = link_to 'Estados Paciente', lookups_path(@lookup, :lookup_type => "Estados Paciente"), :data => {no_turbolink: true}
+        %li
+          = link_to 'Hospitales', lookups_path(@lookup, :lookup_type => "Hospitales"), :data => {no_turbolink: true}
+        %li
+          = link_to 'Tipo de Atencion', lookups_path(@lookup, :lookup_type => "Tipo de Atencion"), :data => {no_turbolink: true}
+        %li
+          = link_to 'Estado Civil', lookups_path(@lookup, :lookup_type => "Estado Civil"), :data => {no_turbolink: true}
   %li.launcher
     %i.icon-bug
     %a{href: '#'} Feedback
-
-#beaker{data: {toggle: 'tooltip'}, title: 'Made by lab2023'}

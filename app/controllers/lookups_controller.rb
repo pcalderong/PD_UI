@@ -1,8 +1,13 @@
 class LookupsController < ApplicationController
   before_action :set_lookup, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin_permission
 
   # GET /lookups
   # GET /lookups.json\
+
+  def require_admin_permission
+    redirect_to tables_path, notice: 'Necesita permisos de administrador para visualizar la configuracion' unless current_user_admin?
+  end
 
   def index
     @lookup_type = params[:lookup_type]

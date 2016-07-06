@@ -4,7 +4,7 @@
     %i.icon-table.icon-large
       = @lookup_type
       \- Administración
-  %table#lookups_table.table
+  %table.table.display#lookups_table
     %thead
       %tr
         %th Nombre
@@ -12,6 +12,7 @@
         %th Opciones
     %tbody
       - if @lookups.size >0
+        = render "lookups/form", l_type: @lookup_type
         - @lookups.each do |lookup|
           %tr
             %td= best_in_place lookup, :value
@@ -23,5 +24,4 @@
         %tr
           %td{:colspan => "3"}
             No existe informacion relacionada a #{@lookup_type}
-        %tr#lookups{:style => "display:none;"}
-          = render "lookups/form", l_type: @lookup_type
+        = render "lookups/form", l_type: @lookup_type

@@ -6,6 +6,10 @@ class ApplicationPolicy
     @record = record
   end
 
+  def current_user_admin?
+    @user.admin_level == 83
+  end
+
   def index?
     false
   end

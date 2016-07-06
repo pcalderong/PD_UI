@@ -11,11 +11,12 @@
 # GO AFTER THE REQUIRES BELOW.
 #
 #= require jquery
+#= require jquery.turbolinks
 #= require jquery_ujs
+#= require jquery.purr
 #= require turbolinks
 #= require bootstrap
 #= require hierapolis
-#= require jquery.purr
 #= require dataTables/jquery.dataTables
 #= require bootstrap-datepicker
 #= require bootstrap-datepicker/core
@@ -23,23 +24,30 @@
 #= require best_in_place
 
 ready = ->
-  # TODO
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
-$(window).on('page:load', ready)
 jQuery(document).ready ($) ->
   $('.best_in_place').best_in_place()
   return
 
 jQuery(document).ready ($) ->
   $('#lookups_table').dataTable
-    "scrollY": "200px"
-    "scrollCollapse": true
-    "paging": true
+    'paging': true
+    'ordering': true
     'language':
       'lengthMenu': 'Mostrando _MENU_ registros por pagina'
       'zeroRecords': 'No existen registros'
       'info': 'Mostrando pagina _PAGE_ de _PAGES_'
+      'search': 'Buscar:'
       'infoEmpty': 'No hay registros disponibles'
+      'paginate': {
+          'first':      ' Primero '
+          'last':       ' Ultimo '
+          'next':       ' Siguiente '
+          'previous':   ' Anterior '
+      }
   return
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
+$(window).on('page:load', ready)
