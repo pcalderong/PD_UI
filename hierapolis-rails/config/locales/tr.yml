@@ -1,0 +1,28 @@
+tr:
+  messages:
+    sorry: Üzgünüz
+  cancel: İptal
+  tooltips:
+    zoom: Detay
+  tt:
+    index: "%{resource_name} listesi"
+    edit: "%{resource_name} düzenle"
+    new: "Yeni %{resource_name}"
+    show: "%{resource_name} detay"
+
+  action_button:
+    new: "Yeni %{resource_name}"
+    edit: "Düzenle"
+
+  tooltips:
+    edit: Düzenle
+    new: Yeni
+    zoom: Detay
+  navbar:
+    root: Anasayfa
+    edit_profile: Profil Düzenle
+    settings: Ayarlar
+    signout: Çıkış
+    signin: Giriş Yap
+  dock:
+    dashboard: Kontrol Paneli

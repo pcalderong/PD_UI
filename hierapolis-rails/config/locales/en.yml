@@ -1,0 +1,27 @@
+en:
+  hello: "Hello world"
+  cancel: Cancel
+  tooltips:
+    zoom: Zoom
+  messages:
+    sorry: Sorry
+  tt:
+    index: "%{resource_name} list"
+    edit: "Editing %{resource_name}"
+    new: "New %{resource_name}"
+    show: "%{resource_name} detail"
+  action_button:
+    new: "New %{resource_name}"
+    edit: "Edit"
+  tooltips:
+    edit: Edit
+    new: New
+    zoom: Detail
+  navbar:
+    root: Home
+    edit_profile: Edit Profile
+    settings: Settings
+    signout: Sign Out
+    signin: Sign In
+  dock:
+    dashboard: Dashboard
