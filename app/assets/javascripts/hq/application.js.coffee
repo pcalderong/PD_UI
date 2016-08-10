@@ -14,7 +14,6 @@
 #= require jquery.turbolinks
 #= require jquery_ujs
 #= require jquery.purr
-#= require turbolinks
 #= require bootstrap
 #= require hierapolis
 #= require dataTables/jquery.dataTables
@@ -49,5 +48,5 @@ jQuery(document).ready ($) ->
 
 
 $(document).ready(ready)
-$(document).on('page:load', ready)
-$(window).on('page:load', ready)
+$(document).on('page:change', ready)
+$(window).on('page:change', ready)
