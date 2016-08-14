@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    Importar Excel - Pacientes
+  .panel-body
+    = form_tag documents_do_import_path, multipart: true do
+      %fieldset
+        %legend Seleccione el archivo a importar:
+        .form-group
+          = file_field_tag :file
+        .form-actions
+          %button.btn.btn-default{:type => 'submit'} Importar

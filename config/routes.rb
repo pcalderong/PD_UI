@@ -26,9 +26,10 @@ resources :dashboards
 
  get "reports/generate_report" => "reports#generate_report"
  get "/personas/export" => "personas#export"
- get "/personas/import" => "personas#import"
- post "/personas/import" => "personas#importar"
- get "/reports/template" => "reports#template"
+ get "/documents/template" => "documents#template"
+ get "/documents/export" => "documents#export"
+ get "/documents/import" => "documents#import"
+ post "/documents/do_import" => "documents#do_import"
  get "/personas/update_cantones", as: "update_cantones"
  get "/personas/update_distritos", as: "update_distritos"
  get "/personas/update_tipos_padecimientos", as: "update_tipos_padecimientos"
@@ -39,8 +40,9 @@ resources :dashboards
   get '/auth/google_oauth2/callback', to: 'sessions#create'
 
   # resource :session, only: [:create, :destroy]
-
+  resources :estadisticas
   resources :reports
+  resources :documents
   resources :lookups
   resources :personas do
     resources :info_contactos

@@ -1,0 +1,25 @@
+%table#report_table.table.table-hover.table-condensed.table-striped{:height => "30%", :width => "50%"}
+  %thead
+    %tr
+      %th Nombre Reporte
+      %th Parametros
+      %th Ejecutar
+  %tbody
+    - @reports.each do |reporte|
+      %tr
+        = form_tag({ controller: 'reports', action: 'generate_report'}, method: 'get') do
+          %td
+            = label_tag reporte.report_name
+            = hidden_field_tag 'report', reporte.report_name
+          %td
+            - if reporte.report_name.include?("Fallecido")
+              = text_field_tag 'fecha_ini', nil,  {'data-behaviour' => 'datepicker'}
+              al
+              \#{text_field_tag 'fecha_fin', nil,  {'data-behaviour' => 'datepicker'}}
+            - elsif reporte.report_name.include?("Edad")
+              = number_field_tag 'edad_ini'
+              a
+              \#{number_field_tag 'edad_fin'}
+          %td
+            = submit_tag "Reporte", name: nil, class: 'btn' do
+              %i.fa.fa-plus

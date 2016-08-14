@@ -1,45 +1,52 @@
 %i#toggle.icon-align-justify.icon-large
 
 %ul#dock
-  %li.launcher
-    %i.icon-dashboard
-    =link_to  t('dock.dashboard'), "hq_dashboard_index_path"
-  %li.launcher
-    %i.icon-file-text-alt
-    =link_to 'Forms', '/hq/dashboard/form.html'
-  %li.launcher
-    %i.icon-table
-    =link_to 'Tables', '/hq/dashboard/tables.html'
   %li.launcher.dropdown.hover
-    %i.icon-flag
-    %a{href: '#'} Reports
+    %i.icon-user
+    =link_to  "Pacientes", '#'
     %ul.dropdown-menu
-      %li.dropdown-header Launcher description
       %li
-        %a{:href => '#'} Action
+        = link_to 'Agregar Paciente', documents_import_path
       %li
-        %a{:href => '#'} Another action
+        = link_to 'Mostrar Pacientes', documents_export_path, target: "_blank"
       %li
-        %a{:href => '#'} Something else here
+  %li.launcher.dropdown.hover
+    %i.icon-dashboard
+    =link_to  "Estadisticas", '#'
+  - if current_user_admin?
+    %li.launcher.dropdown.hover
+      %i.icon-exchange
+      = link_to 'Documentos'
+      %ul.dropdown-menu
+        %li
+          = link_to 'Importar', documents_import_path
+        %li
+          = link_to 'Exportar', documents_export_path, target: "_blank"
+        %li
+          = link_to 'Descargar Plantilla', documents_template_path, target: "_blank"
+  - if current_user_admin?
+    %li.launcher.dropdown.hover
+      %i.icon-flag
+      = link_to 'Reportes', reports_path, { :'data-no-turbolink' =>  "true" }
   - if current_user_admin?
     %li.launcher.dropdown.hover
       %i.icon-cog
       = link_to 'Configuración', '#'
       %ul.dropdown-menu
         %li
-          = link_to 'Direcciones', lookups_path(@lookup, :lookup_type => "Direcciones"), :data => {no_turbolink: true}
+          = link_to 'Direcciones', lookups_path(@lookup, :lookup_type => "Direcciones"), { :'data-no-turbolink' =>  "true" }
         %li
-          = link_to 'Especialidades Medicas', lookups_path(@lookup, :lookup_type => "Especialidades"), :data => {no_turbolink: true}
+          = link_to 'Especialidades Medicas', lookups_path(@lookup, :lookup_type => "Especialidades"), { :'data-no-turbolink' =>  "true" }
         %li
-          = link_to 'Padecimientos', lookups_path(@lookup, :lookup_type => "Padecimientos"), :data => {no_turbolink: true}
+          = link_to 'Padecimientos', lookups_path(@lookup, :lookup_type => "Padecimientos"), { :'data-no-turbolink' =>  "true" }
         %li
-          = link_to 'Estados Paciente', lookups_path(@lookup, :lookup_type => "Estados Paciente"), :data => {no_turbolink: true}
+          = link_to 'Estados Paciente', lookups_path(@lookup, :lookup_type => "Estados Paciente"), { :'data-no-turbolink' =>  "true" }
         %li
-          = link_to 'Hospitales', lookups_path(@lookup, :lookup_type => "Hospitales"), :data => {no_turbolink: true}
+          = link_to 'Hospitales', lookups_path(@lookup, :lookup_type => "Hospitales"), { :'data-no-turbolink' =>  "true" }
         %li
-          = link_to 'Tipo de Atencion', lookups_path(@lookup, :lookup_type => "Tipo de Atencion"), :data => {no_turbolink: true}
+          = link_to 'Tipo de Atencion', lookups_path(@lookup, :lookup_type => "Tipo de Atencion"), { :'data-no-turbolink' =>  "true" }
         %li
-          = link_to 'Estado Civil', lookups_path(@lookup, :lookup_type => "Estado Civil"), :data => {no_turbolink: true}
+          = link_to 'Estado Civil', lookups_path(@lookup, :lookup_type => "Estado Civil"), { :'data-no-turbolink' =>  "true" }
   %li.launcher
     %i.icon-bug
     %a{href: '#'} Feedback
